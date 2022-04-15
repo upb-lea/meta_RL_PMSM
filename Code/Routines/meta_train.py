@@ -25,7 +25,7 @@ args = parser.parse_args()
 code_path = Path(__file__).parent.absolute()
 train_path = Path(args.trainfile) if args.trainfile is not None else code_path.parent.parent / "MotorDB" / "Training.xlsx"
 test_path = Path(args.testfile) if args.testfile is not None else code_path.parent.parent / "MotorDB" / "Test.xlsx"
-save_path = Path(args.savefolder) if args.savefolder is not None else code_path.parent.parent / "Save"
+save_path = Path(args.savefolder) if args.savefolder is not None else code_path.parent.parent / "Save" / "Trainings"
 use_context = False if args.context == "None" else True
 buffer_size = int(args.training_steps)
 if args.context == "None":
