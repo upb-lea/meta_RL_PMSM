@@ -2,7 +2,7 @@ import numpy as np
 from pathlib import Path
 import os
 import sys
-sys.path.append('../')
+sys.path.append(str(Path(__file__).parent.absolute().parent))
 from Auxillary.DESSCA import dessca_model
 
 def get_dessca_samples(state_names, box_constraints, ref_pdf, num_samples):
