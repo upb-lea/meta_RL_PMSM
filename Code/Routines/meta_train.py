@@ -6,7 +6,7 @@ from Auxillary.MRL import MRL
 
 TRAINING_BATCH_SIZE = 32
 
-
+#Get userdefined parameters
 parser = argparse.ArgumentParser(description='Get Meta-Training Hyperparameters')
 parser.add_argument('steps_per_task',
                     help='Number of steps per motor until we draw next')
@@ -22,6 +22,7 @@ parser.add_argument('-te', '--testfile', nargs='?', help='Abs path to .xlsx of t
 parser.add_argument('-c', '--context', nargs='?', help='Chose "None" if you dont want any context')
 args = parser.parse_args()
 
+#Process user input
 code_path = Path(__file__).parent.absolute()
 train_path = Path(args.trainfile) if args.trainfile is not None else code_path.parent.parent / "MotorDB" / "Training.xlsx"
 test_path = Path(args.testfile) if args.testfile is not None else code_path.parent.parent / "MotorDB" / "Test.xlsx"
@@ -33,6 +34,7 @@ if args.context == "None":
 else:
     context_size = 8
 
+#Define meta training parameters
 policy_params = {
     "state_dim": 8,
     "action_dim": 2,
@@ -51,5 +53,6 @@ policy_params = {
     "context_size": context_size,
     "context_input_size": 1000,
 }
+#Start traaining
 mrl = MRL(train_path,test_path, buffer_size, policy_params, TRAINING_BATCH_SIZE, save_path, use_context=use_context, name=args.name)
 mrl.meta_train(int(args.steps_per_task), int(args.training_steps), int(args.checkpoint_steps))
