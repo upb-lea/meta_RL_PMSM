@@ -5,7 +5,7 @@ This repository provides the associated engine database and code to the paper Me
 
 ## General Setup
 
-<img src="Supplementary/Meta_Scheme.png" width="600" align="center">
+<p align="center"> <img src="Supplementary/Meta_Scheme.png" width="600"> </p>
 
 ## Engine Database
 
