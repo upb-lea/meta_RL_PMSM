@@ -9,6 +9,6 @@ For this paper a big number of physical motor drive parameters from a wide range
 
 ### Parameter Selection for Training and Test
 
-In order to achieve a balanced coverage of the parameter space, a thought out preselection of training and test parameters was made. This was based on a representation of the parameters that should describe the dynamics of a motor in normalized space. The script can be found and executed in _Code/Data_Selection/Dataset_Sampling.py_. Executing it as it is will create the physical parameter sets _Training.xlsx_ and _Test.xlsx_ as well as the normalized dynamics parameter set _ODETraining.xlsl_ amd _ODETest.xlsx_ which are used in this work. To derive different sets, the random states in _Dataset_Sampling.py_ have to be altered.
+In order to achieve a balanced coverage of the parameter space, a thought out preselection of training and test parameters was made. This was based on a representation of the parameters that should describe the dynamics of a motor in normalized space. The script can be found and executed in [Dataset_Sampling.py](Code/Data_Selection/Dataset_Sampling.py). Executing it as it is will create the physical parameter sets _Training.xlsx_ and _Test.xlsx_ as well as the normalized dynamics parameter set _ODETraining.xlsl_ amd _ODETest.xlsx_ which are used in this work. To derive different sets, the random states in _Dataset_Sampling.py_ have to be altered.
 
 
