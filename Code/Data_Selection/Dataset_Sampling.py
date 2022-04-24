@@ -4,6 +4,9 @@ import numpy as np
 from scipy.spatial import ConvexHull
 from imblearn.over_sampling import SMOTE
 
+
+RANDOM_STATES = [666, 22, 10, 25, 43, 143, 57]
+
 def get_interior(db):
     interior = db[db['Ld'] != db['Lq']]
     interior.reset_index(inplace=True, drop=True)
@@ -74,7 +77,7 @@ def SMOTE_Sampling(minor, major, num_samples=75):
         0:num_samples,
     }
     classes = np.concatenate(( major_arr, minor_arr))
-    smotenc = SMOTE(random_state=666, sampling_strategy=sampling_strategy, k_neighbors=5)
+    smotenc = SMOTE(random_state=RANDOM_STATES[0], sampling_strategy=sampling_strategy, k_neighbors=5)
     new_minmaj, new_classes = smotenc.fit_resample(minmaj, classes)
     sPMSMs = new_minmaj.iloc[:-num_samples]
     IPMSMs = new_minmaj.iloc[-num_samples:]
@@ -97,7 +100,7 @@ SPMSMs_ode = calc_ode_params(SPMSMs)
 SPMSMs_ode_new, SPMSMs_ode_pos = downsampling(SPMSMs_ode, 35)
 SPMSMs_new_el = SPMSMs.loc[SPMSMs_ode_pos]
 SPMSMs_ode_new2 = SPMSMs_ode.drop(SPMSMs_ode_pos)
-SPMSMs_ode_new2 = SPMSMs_ode_new2.sample(40, random_state=22)
+SPMSMs_ode_new2 = SPMSMs_ode_new2.sample(40, random_state=RANDOM_STATES[1])
 SPMSMs_new_el2 = SPMSMs.drop(SPMSMs_ode_pos).loc[SPMSMs_ode_new2.index]
 SPMSMs_ode = pd.concat([SPMSMs_ode_new,SPMSMs_ode_new2])
 SPMSMs_ode_el = pd.concat([SPMSMs_new_el,SPMSMs_new_el2])
@@ -111,7 +114,7 @@ SPMSMs_training1 = SPMSMs_ode.iloc[vertices]
 SPMSMs_training1_el = SPMSMs_ode_el.iloc[vertices]
 SPMSMs_ode.drop(vertices, inplace=True)
 SPMSMs_ode_el.drop(vertices, inplace=True)
-SPMSMs_training2 = SPMSMs_ode.sample(50-len(vertices), random_state=10)
+SPMSMs_training2 = SPMSMs_ode.sample(50-len(vertices), random_state=RANDOM_STATES[2])
 SPMSMs_training2_el = SPMSMs_ode_el.loc[SPMSMs_training2.index]
 SPMSMs_test = SPMSMs_ode.drop(SPMSMs_training2.index)
 SPMSMs_test_el = SPMSMs_ode_el.drop(SPMSMs_training2.index)
@@ -124,7 +127,7 @@ SPMSMs_training_el.reset_index(inplace=True, drop=True)
 
 ###IPMSM Sampling
 
-## Create 75 IPMSMs
+##Create 75 IPMSMs
 
 #Source of in_hull():
 #https://stackoverflow.com/questions/16750618/whats-an-efficient-way-to-find-if-a-point-lies-in-the-convex-hull-of-a-point-cl
@@ -149,9 +152,9 @@ for i in range((num_smote_samples-14)):
 ##Select 50 training and 25 test motors
 IPMSMs_training1 = IPMSMs_ode_new[:14]
 IPMSMs_ode_new.drop(hull.vertices, inplace=True)
-IPMSMs_training2 = IPMSMs_ode_new.sample(36, random_state=25)
+IPMSMs_training2 = IPMSMs_ode_new.sample(36, random_state=RANDOM_STATES[3])
 IPMSMs_ode_new.drop(IPMSMs_training2.index, inplace=True)
-IPMSMs_test = IPMSMs_ode_new.sample(25, random_state=43)
+IPMSMs_test = IPMSMs_ode_new.sample(25, random_state=RANDOM_STATE[4])
 IPMSMs_training = pd.concat([IPMSMs_training1, IPMSMs_training2])
 IPMSMs_training_el = pd.concat([IPMSMs, calc_electrical_params(IPMSMs_training2,Rs=1,p=4,In=5)])
 IPMSMs_test_el = calc_electrical_params(IPMSMs_test,Rs=1,p=4,In=5)
@@ -160,8 +163,8 @@ IPMSMs_test_el = calc_electrical_params(IPMSMs_test,Rs=1,p=4,In=5)
 def save_to_excel( file, folder, name):
     file.to_excel(folder / name, index=False)
 
-train = pd.concat([SPMSMs_training_el, IPMSMs_training_el]).sample(frac=1, random_state=143).reset_index(drop=True)
-test = pd.concat([SPMSMs_test_el, IPMSMs_test_el]).sample(frac=1, random_state=57).reset_index(drop=True)
+train = pd.concat([SPMSMs_training_el, IPMSMs_training_el]).sample(frac=1, random_state=RANDOM_STATES[5]).reset_index(drop=True)
+test = pd.concat([SPMSMs_test_el, IPMSMs_test_el]).sample(frac=1, random_state=RANDOM_STATES[6]).reset_index(drop=True)
 save_to_excel(train, motor_db_path, "Training.xlsx")
 save_to_excel(test, motor_db_path, "Test.xlsx")
 save_to_excel(calc_ode_params(train), motor_db_path, "ODETraining.xlsx")
