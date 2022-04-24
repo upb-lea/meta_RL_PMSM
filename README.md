@@ -6,6 +6,7 @@ This repository provides the associated engine database and code to the paper Me
 ## General Setup
 
 <img src="Supplementary/Meta_Scheme.png" width="600">
+
 ## Engine Database
 
 For this paper a big number of physical motor drive parameters from a wide range of power classes was collected. You can find them [here](MotorDB/Complete.xlsx). 
