@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(description='Get Meta-Test Information')
 parser.add_argument('path_to_model',
                     help='Path to the saved folder where the model lies')
 parser.add_argument('-id', '--motorid', nargs='?',  help='ID of the motor, if not specified all motors')
-parser.add_argument('-b', '--buffer', nargs='?',  help='Yes when buffer should be saved instead of reward')
+parser.add_argument('-b', '--buffer', nargs='?', action='store_true',  help='Yes when buffer should be saved instead of reward')
 args = parser.parse_args()
 
 #Define paths
@@ -50,8 +50,8 @@ if args.motorid:
     all_params = all_params.iloc[int(args.motorid)].to_frame().T
 
 #Parameters when -b flag is specified
-return_buffer = True if args.buffer == "Yes" else False
-max_samples = 500 if args.buffer == "Yes" else None
+return_buffer = args.buffer
+max_samples = 500 if args.buffer else None
 
 #Load MRL agent
 mrl = MRL(path_params / "Training.xlsx",path_params / "Test.xlsx",12345, hyperparameters, training_batch_size, path_model, use_context)
