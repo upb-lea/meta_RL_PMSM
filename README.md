@@ -15,4 +15,6 @@ For this paper a big number of physical motor drive parameters from a wide range
 
 In order to achieve a balanced coverage of the parameter space, a thought out preselection of training and test parameters was made. This was based on a representation of the parameters that should describe the dynamics of a motor in normalized space. The script can be found and executed in [Dataset_Sampling.py](Code/Data_Selection/Dataset_Sampling.py). Executing it as it is will create the physical parameter sets [training](MotorDB/Training.xlsx) and [test](MotorDB/Test.xlsx) as well as the normalized dynamics parameter set [training](MotorDB/ODETraining.xlsx) and [test](MotorDB/ODETest.xlsx) which are used in this work. To derive different sets, the random states in the script have to be altered.
 
+## Commissioning Buffer Sampling
 
+This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA)
