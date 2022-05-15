@@ -17,4 +17,4 @@ In order to achieve a balanced coverage of the parameter space, a thought out pr
 
 ## Commissioning Buffer Sampling
 
-This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA)
+This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA). Executing the script [DESSCA_Sampling.py](Code/Data_Selection/DESSCA_Sampling.py) will result in samples for the context generation save [here](Save/DESSCA_Samples/).
