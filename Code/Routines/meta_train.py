@@ -19,7 +19,7 @@ parser.add_argument('-n', '--name', nargs='?',  help='Name of save folder')
 parser.add_argument('-s', '--savefolder', nargs='?',  help='Abs path to save folder')
 parser.add_argument('-tr', '--trainfile', nargs='?', help='Abs path to .xlsx of training motors')
 parser.add_argument('-te', '--testfile', nargs='?', help='Abs path to .xlsx of test motors')
-parser.add_argument('-c', '--context', nargs='?', help='Chose "None" if you dont want any context')
+parser.add_argument('-c', '--context', nargs='?', help='Chose the amount of context variables')
 args = parser.parse_args()
 
 #Process user input
@@ -29,10 +29,7 @@ test_path = Path(args.testfile) if args.testfile is not None else code_path.pare
 save_path = Path(args.savefolder) if args.savefolder is not None else code_path.parent.parent / "Save" / "Trainings"
 use_context = False if args.context == "None" else True
 buffer_size = int(args.training_steps)
-if args.context == "None":
-    context_size = 0
-else:
-    context_size = 8
+context_size = int(args.context)
 
 #Define meta training parameters
 policy_params = {
