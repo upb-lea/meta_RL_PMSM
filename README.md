@@ -37,4 +37,4 @@ The hyperparameters of the agent have to be changed directly in the script. The 
 
 ## Applying the Test Routine
 
-To evaluate a checkpoint's quality the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). You can optionally use the -b flag a
+To evaluate a checkpoint's quality the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). Executing this script will apply the test routine on every motor and return the a value representing its measured control quality. You can optionally use the -b flag to instead execute only a smaller test routine and save the replay buffer for analysis and visualization. The results are saved in the same folder as the tested agent. Another option is to use the -id flag to test the agent only on a specific motor.
