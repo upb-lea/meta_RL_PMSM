@@ -19,17 +19,18 @@ In order to achieve a balanced coverage of the parameter space, a thought out pr
 
 <p align="center"> <img src="Supplementary/dessca_samples.png" width="600"> </p>
 
-This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA). Executing the script [DESSCA_Sampling.py](Code/Data_Selection/DESSCA_Sampling.py) will result in samples which will be used to gather data for the commisioning buffers from the motors. These samples are saved in the [Save](Save/DESSCA_Samples/) folder. Additionally, [test episode initializations](Save/DESSCA_Samples/test_routine_samples.npy) are sampled and saved with the execution of the DESSCA_Sampling.py script.
+This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA). Executing the script [DESSCA_Sampling.py](Code/Data_Selection/DESSCA_Sampling.py) will result in samples which will be used to gather data for the commisioning buffers from the motors. These samples are saved in the [DESSCA_Samples](Save/DESSCA_Samples/) folder. Additionally, [test episode initializations](Save/DESSCA_Samples/test_routine_samples.npy) are sampled and saved with the execution of the DESSCA_Sampling.py script.
 
-## Starting a training
+## Starting a Training
 
 The (meta-)training can be started using script [meta_train.py](Code/Routines/meta_train.py). You have to specify the rollout steps per motor drawn, the total number of rollout steps over all motors until training ends and the number of rollout steps after which a checkpoint is created. Using the same values as used in this work this would be
 
 ```
 meta_train.py 1000 5000000 100000
 ```
-Optionally, using the -tr and -te flags respectively, one can specify a path to the training and test motor parameter sets. Default paths are those of [training](MotorDB/Training.xlsx) and [test](MotorDB/Test.xlsx). The -s flag can be used to specify a save path for the training - default is the [Save](Save/) folder. If the -n flag is not specified, the training routine will create a new folder in the [Save](Save/) folder, depicting the datetime of the training start. Alternatively, the -n flag can be used to define a different name. The -c flag can be used to set the amount of context variables used - default is 8. For example a training without a context network could be started using
+Optionally, using the -tr and -te flags respectively, one can specify a path to the training and test motor parameter sets. Default paths are those of [training](MotorDB/Training.xlsx) and [test](MotorDB/Test.xlsx). The -s flag can be used to specify a save path for the training checkpoints - default is the [Trainings](Save/Trainings) folder. If the -n flag is not specified, the training routine will create a new folder in the [Trainings](Save/Trainings) folder, depicting the datetime of the training start. Alternatively, the -n flag can be used to define a different name. The -c flag can be used to set the amount of context variables used - default is 8. For example a training without a context network could be started using
 
 ```
 meta_train.py 1000 5000000 100000 -c 0 -n no_context
 ```
+The hyperparameters of the agent have to be changed directly in the script. The default values are the same as used for the models used in the paper. For the [MRL](Save/Trainings/MRL) and [RL_AM](Save/Trainings/RL_AM) agents used for the in depth analysis presented in the paper, the respective checkpoints are provided in the repository. We omitted publishing training rewards to not bloat this repository's size.
