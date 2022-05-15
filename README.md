@@ -34,3 +34,7 @@ Optionally, using the -tr and -te flags respectively, one can specify a path to 
 meta_train.py 1000 5000000 100000 -c 0 -n no_context
 ```
 The hyperparameters of the agent have to be changed directly in the script. The default values are the same as used for the models used in the paper. For the [MRL](Save/Trainings/MRL) and [RL_AM](Save/Trainings/RL_AM) agents used for the in depth analysis presented in the paper, the respective checkpoints are provided in the repository. We omitted publishing training rewards to not bloat this repository's size.
+
+## Applying the Test Routine
+
+To evaluate a checkpoint's quality the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). You can optionally use the -b flag a
