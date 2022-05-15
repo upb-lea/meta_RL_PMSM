@@ -21,7 +21,7 @@ In order to achieve a balanced coverage of the parameter space, a thought out pr
 
 This thesis' context was designed to be static. Therefore, a comprehensive input had to be selected. This was done by sampling the state/action space using [DESSCA](https://github.com/max-schenke/DESSCA). Executing the script [DESSCA_Sampling.py](Code/Data_Selection/DESSCA_Sampling.py) will result in samples which will be used to gather data for the commisioning buffers from the motors. These samples are saved in the [Save](Save/DESSCA_Samples/) folder. Additionally, [test episode initializations](Save/DESSCA_Samples/test_routine_samples.npy) are sampled and saved with the execution of the DESSCA_Sampling.py script.
 
-## Commissioning Buffer Sampling
+## Starting a training
 
 The (meta-)training can be started using script [meta_train.py](Code/Routines/meta_train.py). You have to specify the rollout steps per motor drawn, the total number of rollout steps over all motors until training ends and the number of rollout steps after which a checkpoint is created. Using the same values as used in this work this would be
 
