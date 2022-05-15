@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(description='Get Meta-Test Information')
 parser.add_argument('path_to_model',
                     help='Path to the saved folder where the model lies')
 parser.add_argument('-id', '--motorid', nargs='?',  help='ID of the motor, if not specified all motors')
-parser.add_argument('-b', '--buffer', nargs='?', action='store_true',  help='Yes when buffer should be saved instead of reward')
+parser.add_argument('-b', '--buffer', action='store_true',  help='Yes when buffer should be saved instead of reward')
 args = parser.parse_args()
 
 #Define paths
