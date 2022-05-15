@@ -28,3 +28,8 @@ The (meta-)training can be started using script [meta_train.py](Code/Routines/me
 ```
 meta_train.py 1000 5000000 100000
 ```
+Optionally, using the -tr and -te flags respectively, one can specify a path to the training and test motor parameter sets. Default paths are those of [training](MotorDB/Training.xlsx) and [test](MotorDB/Test.xlsx). The -s flag can be used to specify a save path for the training - default is the [Save](Save/) folder. If the -n flag is not specified, the training routine will create a new folder in the [Save](Save/) folder, depicting the datetime of the training start. Alternatively, the -n flag can be used to define a different name. The -c flag can be used to set the amount of context variables used - default is 8. For example a training without a context network could be started using
+
+```
+meta_train.py 1000 5000000 100000 -c 0 -n no_context
+```
