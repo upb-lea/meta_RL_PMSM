@@ -14,7 +14,7 @@ For this paper a big number of physical motor drive parameters from a wide range
 ### Parameter Selection for Training and Test
 
 In order to achieve a balanced coverage of the parameter space, a thought out preselection of training and test parameters was made. This was based on a representation of the parameters that should describe the dynamics of a motor in normalized space. The script can be found and executed in [Dataset_Sampling.py](Code/Data_Selection/Dataset_Sampling.py). Executing it as it is will create the physical parameter sets [Training.xlsx](MotorDB/Training.xlsx) and [Test.xlsx](MotorDB/Test.xlsx) as well as the normalized dynamics parameter set [ODETraining.xlsx](MotorDB/ODETraining.xlsx) and [ODETest.xlsx](MotorDB/ODETest.xlsx) which are used in this work. To derive different sets, the random states in the script have to be altered. Script [Dataset_Visualization.py](Code/Evaluation/Dataset_Visualization.py) can be used to visualize your electrical and ODE parameter distribution.
-<p float="left">
+<p align="center">
   <img src="Supplementary/Ld_Lq.png" width="400" />
   <img src="Supplementary/p1_p4.png" width="400" /> 
 </p>
@@ -42,7 +42,7 @@ The hyperparameters of the agent have to be changed directly in the script. The 
 ## Applying the Test Routine
 
 To evaluate a checkpoint's quality the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). Executing this script will apply the test routine on every motor and return the a value representing its measured control quality. You can optionally use the -b flag to instead execute only a smaller test routine and save the replay buffer for analysis and visualization. The results are saved in the same folder as the tested agent. Another option is to use the -id flag to test the agent only on a specific motor. The pictures depicted below are just an example of how the saved buffers can be used to create a visualization of test results. If you wish an example script for this procedure please raise an issue as the code is quite individually programmed and not easily applicable to this repository.
-<p float="left">
+<p align="center">
   <img src="Supplementary/trajectory5.png" width="400" />
   <img src="Supplementary/trajectory133.png" width="400" /> 
 </p>
