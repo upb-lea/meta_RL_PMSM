@@ -14,9 +14,11 @@ For this paper a big number of physical motor drive parameters from a wide range
 ### Parameter Selection for Training and Test
 
 In order to achieve a balanced coverage of the parameter space, a thought out preselection of training and test parameters was made. This was based on a representation of the parameters that should describe the dynamics of a motor in normalized space. The script can be found and executed in [Dataset_Sampling.py](Code/Data_Selection/Dataset_Sampling.py). Executing it as it is will create the physical parameter sets [Training.xlsx](MotorDB/Training.xlsx) and [Test.xlsx](MotorDB/Test.xlsx) as well as the normalized dynamics parameter set [ODETraining.xlsx](MotorDB/ODETraining.xlsx) and [ODETest.xlsx](MotorDB/ODETest.xlsx) which are used in this work. To derive different sets, the random states in the script have to be altered. Script [Dataset_Visualization.py](Code/Evaluation/Dataset_Visualization.py) can be used to visualize your electrical and ODE parameter distribution.
+<p float="left">
+  <img src="Supplementary/Ld_Lq.png" width="500" />
+  <img src="Supplementary/p1_p4.png" width="500" /> 
+</p>
 
-<p align="center"> <img src="Supplementary/Ld_Lq.png" width="600"> </p>
-<p align="center"> <img src="Supplementary/p1_p4.png" width="600"> </p>
 ## Commissioning Buffer Sampling
 
 <p align="center"> <img src="Supplementary/dessca_samples.png" width="600"> </p>
