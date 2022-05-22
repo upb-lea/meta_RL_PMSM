@@ -95,7 +95,7 @@ class MRL:
     def meta_train(self, num_steps_task, num_steps_train, checkpoint_steps=int(1e5)):
         self.init_checkpoints()
         if self.use_context:
-            dessca_load = self.load_path / "DESSCA_Samples" / "context_samples_training.npy"
+            dessca_load = self.load_path.parent / "DESSCA_Samples" / "context_samples_training.npy"
             dessca_samples = np.load(dessca_load)
             dessca_states = dessca_samples[:,:,:4]
             dessca_states= dessca_states[:,:,[2,0,1,3]] # change order such that omega is first

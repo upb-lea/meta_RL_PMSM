@@ -154,7 +154,7 @@ IPMSMs_training1 = IPMSMs_ode_new[:14]
 IPMSMs_ode_new.drop(hull.vertices, inplace=True)
 IPMSMs_training2 = IPMSMs_ode_new.sample(36, random_state=RANDOM_STATES[3])
 IPMSMs_ode_new.drop(IPMSMs_training2.index, inplace=True)
-IPMSMs_test = IPMSMs_ode_new.sample(25, random_state=RANDOM_STATE[4])
+IPMSMs_test = IPMSMs_ode_new.sample(25, random_state=RANDOM_STATES[4])
 IPMSMs_training = pd.concat([IPMSMs_training1, IPMSMs_training2])
 IPMSMs_training_el = pd.concat([IPMSMs, calc_electrical_params(IPMSMs_training2,Rs=1,p=4,In=5)])
 IPMSMs_test_el = calc_electrical_params(IPMSMs_test,Rs=1,p=4,In=5)

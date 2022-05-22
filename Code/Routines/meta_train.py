@@ -27,9 +27,9 @@ code_path = Path(__file__).parent.absolute()
 train_path = Path(args.trainfile) if args.trainfile is not None else code_path.parent.parent / "MotorDB" / "Training.xlsx"
 test_path = Path(args.testfile) if args.testfile is not None else code_path.parent.parent / "MotorDB" / "Test.xlsx"
 save_path = Path(args.savefolder) if args.savefolder is not None else code_path.parent.parent / "Save" / "Trainings"
-use_context = False if args.context == "None" else True
+use_context = False if args.context == "0" else True
 buffer_size = int(args.training_steps)
-context_size = int(args.context)
+context_size = int(args.context) if args.context is not None else 8
 
 #Define meta training parameters
 policy_params = {
