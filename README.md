@@ -49,4 +49,7 @@ To evaluate a checkpoint's quality the routine [meta_test.py](Code/Routines/meta
 
 ## Evaluate Context Network
 
-When a trained MRL-agent is available, script [Generate_Context.py](Code/Evaluation/Generate_Context.py) can be used to generate this agent's context variables for each motor. They are saved in the same folder as the evaluated agent. 
+When a trained MRL-agent is available, script [Generate_Context.py](Code/Evaluation/Generate_Context.py) can be used to generate this agent's context variables for each motor. They are saved in a [Contexts](Save/Trainings/MRL/2800000/Contexts/) folder which lies in the same folder as the evaluated agent. Script [Context_Correlation.py](Code/Evaluation/Generate_Context.py) can then be used to analyze the correlations of these variables to electrical and ODE motor parameters. A resulting picture will also be saved in the Contexts folder.
+
+<p align="center"> <img src="Supplementary/CorrelationMatrix.png" width="600"> </p>
+
