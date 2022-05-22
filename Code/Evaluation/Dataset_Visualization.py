@@ -60,8 +60,7 @@ log_dict = {
 
 
 def plot_comparison(minor_db1, major_db1, minor_db2, major_db2, save_path):
-    if not os.path.isdir(save_path):
-        os.makedirs(save_path)
+    save_path.mkdir(parents=True, exist_ok=True)
     columns = list(minor_db1.columns)
     minor_db1.reset_index(inplace=True)
 
