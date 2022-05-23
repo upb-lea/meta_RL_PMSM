@@ -1,4 +1,4 @@
-# meta_RL_PMSM
+# Meta Reinforcement Learning-Based CurrentControl of Permanent Magnet Synchronous MotorDrives for a Wide Range of Power Classes
 This repository provides the associated engine database and code to the paper Meta Reinforcement Learning-Based Current Control of Permanent Magnet Synchronous Motor Drives for a Wide Range of Power Classes. It aims to allow the reader to reproduce all the results as well as draw inspiration from the code. If you use any sections from the code or the engine database for your publications, please cite this paper as follows:
 
 ....
