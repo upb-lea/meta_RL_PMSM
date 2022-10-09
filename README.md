@@ -41,10 +41,10 @@ The hyperparameters of the agent have to be changed directly in the script. The 
 
 ## Applying the Test Routine
 
-To evaluate a checkpoint's quality, the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). Executing this script will apply the test routine on each motor and return the a value representing its measured control quality. You can optionally use the -b flag to execute only a smaller test routine instead and save the replay buffer for analysis and visualization. The results are saved in the same folder as the tested agent. Another option is to use the -id flag to test the agent only on a specific motor. The pictures depicted below are just an example of how the saved buffers can be used to create a visualization of test results. If you wish an example script for this procedure please raise an issue as the code is quite individually programmed and not easily applicable to this repository.
+To evaluate a checkpoint's quality, the routine [meta_test.py](Code/Routines/meta_test.py) can be used. You have to specify the folder of the saved agent (its hyperparameters have to be saved in its parent folder). Executing this script will apply the test routine on each motor and return the a value representing its measured control quality. You can optionally use the -b flag to execute only a smaller test routine instead and save the replay buffer for analysis and visualization. The results are saved in the same folder as the tested agent. Another option is to use the -id flag to test the agent only on a specific motor. The pictures depicted below are an example of how the saved buffers can be used to create a visualization of test results, although the data presented here was generated outside of the test routine.
 <p align="center">
-  <img src="Supplementary/trajectory5.png" width="400" />
-  <img src="Supplementary/trajectory133.png" width="400" /> 
+  <img src="Supplementary/m116_currents.png" width="400" />
+  <img src="Supplementary/m67_currents.png" width="400" /> 
 </p>
 
 ## Evaluate Context Network
