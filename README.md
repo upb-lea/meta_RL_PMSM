@@ -1,8 +1,23 @@
 # Meta Reinforcement Learning-Based Current Control of Permanent Magnet Synchronous Motor Drives for a Wide Range of Power Classes
 This repository provides the associated engine database and code to the paper Meta Reinforcement Learning-Based Current Control of Permanent Magnet Synchronous Motor Drives for a Wide Range of Power Classes. It aims to allow the reader to reproduce all the results as well as draw inspiration from the code. If you use any sections from the code or the engine database for your publications, please cite this paper as follows:
 
-....
+```
+D. Jakobeit, M. Schenke and O. Wallscheid, "Meta-Reinforcement Learning-Based Current Control of Permanent Magnet Synchronous Motor Drives for a Wide Range of Power Classes," in IEEE Transactions on Power Electronics, doi: 10.1109/TPEL.2023.3256424.
+```
 
+Or using BibTeX:
+```
+@ARTICLE{10068250,
+  author={Jakobeit, Darius and Schenke, Maximilian and Wallscheid, Oliver},
+  journal={IEEE Transactions on Power Electronics}, 
+  title={Meta-Reinforcement Learning-Based Current Control of Permanent Magnet Synchronous Motor Drives for a Wide Range of Power Classes}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-13},
+  doi={10.1109/TPEL.2023.3256424}}
+
+```
 ## General Setup
 
 <p align="center"> <img src="Supplementary/Meta_Scheme.png" width="600"> </p>
